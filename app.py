@@ -5,15 +5,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Simple clean JSON response
+    # Return clean JSON if requested
     if 'application/json' in request.headers.get('Accept', ''):
         return jsonify({
-            "app": "Flask API",
+            "message": "Hello, This is Flask Semifinal",
             "status": "running",
             "version": "1.0"
         })
 
-    # Minimal welcome page
+    # Return minimal welcome page
     return render_template_string('''
     <!DOCTYPE html>
     <html>
@@ -57,7 +57,7 @@ def home():
     </head>
     <body>
         <div class="card">
-            <h1>Flask API</h1>
+            <h1>Hello, This is Flask Semifinal</h1>
             <p>A simple web service</p>
             <div class="status">Status: Running</div>
         </div>
